@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+@dark-blue : #011140;
+@light-blue: #6A79A6;
+@green: #027368;
+@beige: #D9D6D0;
+@red: #D92B04;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@fontFamily: 'Roboto', sans-serif;
+
+html, body {
+  border: 0;
+  font-family: fontFamily;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+div, span, object, iframe, img, table, caption, thead, tbody, tfoot, tr, tr, td, article, aside,
+canvas, details, figure, hgroup, menu, nav, footer, header, section, summary, mark, audio, video {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, ins, q, samp,
+small, strong, sub, sup, b, i, hr, dl, dt, dd, ol, ul, li, fieldset, legend, label { 
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+}
+
+article, aside, canvas, figure, figure img, figcaption, hgroup, footer, header, nav, section, audio,
+video {
+  display: block;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  caption,
+  th,
+  td {
+    text-align: left;
+    vertical-align: middle;
+  }
+}
+
+a img {
+  border: 0;
+}
+
+:focus {
+  outline: 0;
+}
+
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { 
+  /* search form */
+  body{
+    background: #d1d5db;
+}
+  .search {
+    margin-top: 4rem;
+
+  .form{
+    height: 55px;
+      position: relative;
+  }
+  
+  .form .fa-search{
+  
+      position: absolute;
+      top:20px;
+      left: 20px;
+      color: #9ca3af;
+  
+  }
+  
+  .form span{
+  
+      position: absolute;
+      right: 17px;
+      top: 13px;
+      padding: 2px;
+      border-left: 1px solid #d1d5db;
+  
+  }
+  
+  .left-pan{
+      padding-left: 7px;
+  }
+  
+  .left-pan i{
+     
+     padding-left: 10px;
+  }
+  
+  .form-input{
+
+      height: inherit;
+      text-indent: 33px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      &::placeholder{
+        text-transform: none;
+      }
+  }
+  
+  .form-input:focus{
+      box-shadow: none;
+      //border:none;
+  }
+
+  button {
+    position: absolute;
+    top: 10%;
+    right: 5px;
+    height: 80%;
+    width: 110px;
+   }
+
+   .servicesprovided {
+    display:flex;
+    flex-direction: column;
+    label {
+      //width: 104px;
+     }
+   }
+
+}
+  
+
+ }
+
+
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {  }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {  }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {  }
