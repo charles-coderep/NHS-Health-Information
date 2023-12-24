@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     }
                     return response.json();
                 })
-                .then(data => { NHSorgLoadArray(data) }).
+                .then(data => { orgSelector(data, firstThree = 4) }).
                 catch(error => console.error(error));
         }
         else {
@@ -49,11 +49,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
 })
 
 
-function NHSorgLoadArray(data) {
+function orgSelector(data, firstThree) {
     console.log(data)
-    const latPos = data.value[1].Latitude;
-    const longPos = data.value[1].Longitude
-    initMap(latPos, longPos);
+    const positions = [];
+
+    for (let i = 0; i < firstThree; i++) {
+        positions.push({
+            lat: data.value[i].Latitude,
+            lng: data.value[i].Longitude
+        });
+    }
+    console.log(positions);
+    initMap(positions);
 }
 
 
@@ -65,16 +72,24 @@ function NHSorgLoadArray(data) {
 * Copyright 2019 Google LLC. All Rights Reserved.
 * SPDX-License-Identifier: Apache-2.0
 */
-function initMap(latPos, longPos) {
-    const myLatLng = { lat: latPos, lng: longPos };
+function initMap(positions) {
     const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 14,
-        center: myLatLng,
+        center: positions[0],
     });
 
-    new google.maps.Marker({
-        position: myLatLng,
-        map,
-        title: "Hello World!",
-    });
+    //This object will represent a rectangle that includes all the markers.
+    let bounds = new google.maps.LatLngBounds();
+
+
+    positions.forEach(pos => {
+        let marker = new google.maps.Marker({
+            position: pos,
+            map,
+            title: "Hospital location", //customise later
+        });
+        bounds.extend(pos);
+    })
+
+    map.fitBounds(bounds);
 }
