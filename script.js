@@ -181,48 +181,34 @@ const servicesList = [
 
 const addServiceAutocomplete = () => {
     const serviceInput = document.getElementById('service-input');
-    const serviceSuggestions = document.querySelector('.service-suggestions ul');
-    const selectedServicesContainer = document.createElement('div');
-    selectedServicesContainer.className = 'selected-services';
-    serviceInput.parentNode.insertBefore(selectedServicesContainer, serviceInput);
+    const serviceSuggstions = document.querySelector('.service-suggestions ul');
 
     serviceInput.addEventListener('input', (event) => {
         const inputText = serviceInput.value.toLowerCase();
-        serviceSuggestions.innerHTML = '';
-        if (!inputText) return;
-
-        const filteredServices = servicesList.filter(serviceObject => {
-            return Object.values(serviceObject)[0].toLowerCase().includes(inputText);
+        serviceSuggstions.innerHTML = '';
+        if (!inputText) return
+        // filter the services list that includes input characters and return results into array
+        const filteredServices = servicesList.filter((serviceObject) => {
+            return (Object.values(serviceObject)[0].toLowerCase().includes(inputText));
         }).slice(0, 10);
 
-        filteredServices.forEach(serviceObject => {
-            const li = document.createElement('li');
+        // take array with matched characters and add them to li list as suggestions
+        // user clicks suggestion which is added in service input field
+        filteredServices.forEach((serviceObject) => {
+            const li = document.createElement("li");
             const serviceName = Object.values(serviceObject)[0];
             li.innerText = serviceName;
-            serviceSuggestions.appendChild(li);
+            serviceSuggstions.appendChild(li);
 
-            li.addEventListener('click', () => {
-                const span = document.createElement('span');
-                span.textContent = serviceName;
-                span.className = 'selected-service';
-                selectedServicesContainer.appendChild(span);
+            //attach click event to each of the li-suggestions
+            li.addEventListener('click', (event) => {
+                serviceInput.value = serviceName;
+                serviceSuggstions.innerHTML = '';
+            })
+        })
+    })
 
-                // Optional: Add a remove button or icon inside the span
-                const removeBtn = document.createElement('span');
-                removeBtn.textContent = 'x';
-                removeBtn.className = 'remove-service';
-                removeBtn.onclick = function () {
-                    selectedServicesContainer.removeChild(span);
-                };
-                span.appendChild(removeBtn);
-
-                serviceSuggestions.innerHTML = '';
-                serviceInput.value = '';
-                serviceInput.focus();
-            });
-        });
-    });
-};
+}
 
 
 // postcode search
