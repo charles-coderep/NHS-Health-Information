@@ -1,3 +1,6 @@
+div[data-lastpass-icon-root] {
+  display: none;
+}
 @font-face {
   font-family: 'Roboto';
   font-style: italic;
@@ -176,48 +179,68 @@ a img {
   .search .form {
     height: 55px;
     position: relative;
+    width: 100%;
   }
-  .search .form .fa-search {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    color: #9ca3af;
-  }
-  .search .form span {
-    position: absolute;
-    right: 17px;
-    top: 13px;
-    padding: 2px;
-    border-left: 1px solid #d1d5db;
-  }
-  .search .left-pan {
-    padding-left: 7px;
-  }
-  .search .left-pan i {
-    padding-left: 10px;
-  }
-  .search .form-input {
-    height: inherit;
-    text-indent: 33px;
-    border-radius: 10px;
+  .search .form #postcode {
     text-transform: uppercase;
   }
-  .search .form-input::placeholder {
+  .search .form .service-input {
+    text-transform: lowercase;
+  }
+  .search .form div {
+    height: inherit;
+    width: inherit;
+  }
+  .search .form div:first-of-type input {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-right: none;
+  }
+  .search .form div:last-of-type input {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-left-color: #6A79A6;
+    border-left-width: 1px;
+  }
+  .search .form div .form-input {
+    border-color: #011140;
+    border-width: 2px;
+    height: inherit;
+    text-indent: 0px;
+  }
+  .search .form div .form-input::placeholder {
     text-transform: none;
   }
-  .search .form-input:focus {
+  .search .form .form-input:focus {
     box-shadow: none;
   }
   .search button {
+    background-color: #011140;
+    border: none;
     position: absolute;
     top: 10%;
     right: 5px;
     height: 80%;
     width: 110px;
   }
-  .search .servicesprovided {
-    display: flex;
-    flex-direction: column;
+  .search button:hover {
+    background-color: #6A79A6;
+  }
+  .service-suggestions ul {
+    background-color: #D9D6D0;
+    padding-left: unset;
+    padding-bottom: 10px;
+    padding-top: 4px;
+    border-radius: 0 0 10px 10px;
+    cursor: pointer;
+  }
+  .service-suggestions ul:empty {
+    display: none;
+  }
+  .service-suggestions ul li {
+    list-style-type: none;
+    margin-left: 0.75rem;
+    margin-bottom: 6px;
   }
   #map {
     height: 400px;

@@ -1,3 +1,8 @@
+// remove annoying lastpass icon
+div[data-lastpass-icon-root] {
+  display: none;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
 @dark-blue : #011140;
@@ -72,71 +77,78 @@ a img {
   .search {
     margin-top: 4rem;
 
+//form styling
   .form{
     height: 55px;
       position: relative;
-  }
-  
-  .form .fa-search{
-  
-      position: absolute;
-      top:20px;
-      left: 20px;
-      color: #9ca3af;
-  
-  }
-  
-  .form span{
-  
-      position: absolute;
-      right: 17px;
-      top: 13px;
-      padding: 2px;
-      border-left: 1px solid #d1d5db;
-  
-  }
-  
-  .left-pan{
-      padding-left: 7px;
-  }
-  
-  .left-pan i{
-     
-     padding-left: 10px;
-  }
-  
-  .form-input{
-
-      height: inherit;
-      text-indent: 33px;
-      border-radius: 10px;
-      text-transform: uppercase;
-      &::placeholder{
-        text-transform: none;
+      width: 100%;
+      #postcode {
+        text-transform: uppercase;
       }
-  }
-  
+      .service-input {
+        text-transform: lowercase;
+      }
+   div {
+    height: inherit;
+    width: inherit;
+    &:first-of-type input  {
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-right: none;
+    }
+    &:last-of-type input {
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-left-color: @light-blue;
+      border-left-width: 1px;
+    }
+    .form-input{
+      border-color: @dark-blue;
+      border-width: 2px;
+        height: inherit;
+        text-indent: 0px;
+        &::placeholder{
+          text-transform: none;
+        }
+
+    }
+   }
+
   .form-input:focus{
       box-shadow: none;
       //border:none;
   }
-
+}
   button {
+    background-color: @dark-blue;
+    border: none;
     position: absolute;
     top: 10%;
     right: 5px;
     height: 80%;
     width: 110px;
+    &:hover {
+      background-color: @light-blue;
+    }
    }
+}
 
-   .servicesprovided {
-    display:flex;
-    flex-direction: column;
-    label {
-      //width: 104px;
-     }
-   }
-
+.service-suggestions ul {
+  background-color: @beige;
+  padding-left: unset;
+  cursor: pointer;
+  padding-bottom: 10px;
+  padding-top: 4px;
+  border-radius: 0 0 10px 10px;
+  &:empty {
+    display:none;
+  }
+  cursor: pointer;
+  li {
+    list-style-type: none;
+    margin-left: 0.75rem;
+    margin-bottom: 6px;
+  }
 }
 
 #map {

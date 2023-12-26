@@ -7,7 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <script src="script.js"></script>
+    <script src="config.js"></script>
+    <script src="script.js" defer></script>
     <!-- Bootstrap Bundle JS (includes Popper) -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -15,205 +16,39 @@
 <body>
     <div class="container-md search">
         <div class="row justify-content-center ">
-            <div class="col-md-6">
-                <div class="form search-box align-items-center">
-                    <i class="fa fa-search"></i>
-                    <input type="text" class="form-control form-input" placeholder="Enter postcode" id="postcode"
-                        name="postcode">
+            <div class="col-md-10">
+                <div class="form search-box d-flex align-items-center">
+                    <div>
+                        <input type="text" class="form-control form-input" placeholder="Enter postcode" id="postcode"
+                            name="postcode">
+                    </div>
+                    <div>
+                        <input type="text" class="form-control form-input" placeholder="Enter service"
+                            id="service-input" name="serviceInput">
+                        <div class="service-suggestions">
+                            <ul></ul>
+                        </div>
+                    </div>
                     <button type="button" class="btn btn-primary" id="searchButton">Search</button>
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center ">
-            <div class="col-md-12">
-                <div class="form-check servicesprovided">
-                    <h2>Services Provided</h2>
-                    <label class="form-check-label">
-                        Urology
-                        <input class="form-check-input" type="checkbox" name="service" value="SRV0103">
-                    </label>
-                    <label class="form-check-label">
-                        Breast Surgery
-                        <input class="form-check-input" type="checkbox" name="service" value="Breast Surgery">
-                    </label>
-                    <label class="form-check-label">
-                        Vascular surgery
-                        <input class="form-check-input" type="checkbox" name="service" value="Vascular surgery">
-                    </label>
-                    <label class="form-check-label">
-                        Orthopaedics
-                        <input class="form-check-input" type="checkbox" name="service" value="Orthopaedics">
-                    </label>
-                    <label class="form-check-label">
-                        Ophthalmology
-                        <input class="form-check-input" type="checkbox" name="service" value="Ophthalmology">
-                    </label>
-                    <label class="form-check-label">
-                        General Medicine
-                        <input class="form-check-input" type="checkbox" name="service" value="General Medicine">
-                    </label>
-                    <label class="form-check-label">
-                        Gastrointestinal and Liver services
-                        <input class="form-check-input" type="checkbox" name="service"
-                            value="Gastrointestinal and Liver services">
-                    </label>
-                    <label class="form-check-label">
-                        Endocrinology and Metabolic Medicine
-                        <input class="form-check-input" type="checkbox" name="service"
-                            value="Endocrinology and Metabolic Medicine">
-                    </label>
-                    <label class="form-check-label">
-                        Haematology
-                        <input class="form-check-input" type="checkbox" name="service" value="Haematology">
-                    </label>
-                    <label class="form-check-label">
-                        Diabetic Medicine
-                        <input class="form-check-input" type="checkbox" name="service" value="Diabetic Medicine">
-                    </label>
-                    <label class="form-check-label">
-                        Cardiology
-                        <input class="form-check-input" type="checkbox" name="service" value="Cardiology">
-                    </label>
-                    <label class="form-check-label">
-                        Dermatology
-                        <input class="form-check-input" type="checkbox" name="service" value="Dermatology">
-                    </label>
-                    <label class="form-check-label">
-                        Sleep Medicine
-                        <input class="form-check-input" type="checkbox" name="service" value="Sleep Medicine">
-                    </label>
-                    <label class="form-check-label">
-                        Infectious Diseases
-                        <input class="form-check-input" type="checkbox" name="service" value="Infectious Diseases">
-                    </label>
-                    <label class="form-check-label">
-                        Nephrology
-                        <input class="form-check-input" type="checkbox" name="service" value="Nephrology">
-                    </label>
-                    <label class="form-check-label">
-                        Neurology
-                        <input class="form-check-input" type="checkbox" name="service" value="Neurology">
-                    </label>
-                    <label class="form-check-label">
-                        Rheumatology
-                        <input class="form-check-input" type="checkbox" name="service" value="Rheumatology">
-                    </label>
-                    <label class="form-check-label">
-                        Children's & Adolescent Services
-                        <input class="form-check-input" type="checkbox" name="service"
-                            value="Children's & Adolescent Services">
-                    </label>
-                    <label class="form-check-label">
-                        Geriatric Medicine
-                        <input class="form-check-input" type="checkbox" name="service" value="Geriatric Medicine">
-                    </label>
-                    <label class="form-check-label">
-                        Obstetrics
-                        <input class="form-check-input" type="checkbox" name="service" value="Obstetrics">
-                    </label>
-                    <label class="form-check-label">
-                        Gynaecology
-                        <input class="form-check-input" type="checkbox" name="service" value="Gynaecology">
-                    </label>
-                    <label class="form-check-label">
-                        Diagnostic Imaging
-                        <input class="form-check-input" type="checkbox" name="service" value="Diagnostic Imaging">
-                    </label>
-                    <label class="form-check-label">
-                        Diagnostic Physiological Measurement
-                        <input class="form-check-input" type="checkbox" name="service"
-                            value="Diagnostic Physiological Measurement">
-                    </label>
-                    <label class="form-check-label">
-                        Accident and emergency services
-                        <input class="form-check-input" type="checkbox" name="service"
-                            value="Accident and emergency services">
-                    </label>
-                    <label class="form-check-label">
-                        Breast cancer services
-                        <input class="form-check-input" type="checkbox" name="service" value="Breast cancer services">
-                    </label>
-                    <label class="form-check-label">
-                        Colorectal cancer services
-                        <input class="form-check-input" type="checkbox" name="service"
-                            value="Colorectal cancer services">
-                    </label>
-                    <label class="form-check-label">
-                        Community mental health services
-                        <input class="form-check-input" type="checkbox" name="service"
-                            value="Community mental health services">
-                    </label>
-                    <label class="form-check-label">
-                        Sexual health services
-                        <input class="form-check-input" type="checkbox" name="service" value="Sexual health services">
-                    </label>
-                    <label class="form-check-label">
-                        Stroke
-                        <input class="form-check-input" type="checkbox" name="service" value="Stroke">
-                    </label>
-                    <label class="form-check-label">
-                        Maternity services
-                        <input class="form-check-input" type="checkbox" name="service" value="Maternity services">
-                    </label>
-                    <label class="form-check-label">
-                        Obstetrics And Gynaecology
-                        <input class="form-check-input" type="checkbox" name="service"
-                            value="Obstetrics And Gynaecology">
-                    </label>
-                    <label class="form-check-label">
-                        Oncology - Clinical
-                        <input class="form-check-input" type="checkbox" name="service" value="Oncology - Clinical">
-                    </label>
-                    <label class="form-check-label">
-                        Major trauma
-                        <input class="form-check-input" type="checkbox" name="service" value="Major trauma">
-                    </label>
-                    <label class="form-check-label">
-                        Emergency Abdominal Surgery
-                        <input class="form-check-input" type="checkbox" name="service"
-                            value="Emergency Abdominal Surgery">
-                    </label>
-                    <label class="form-check-label">
-                        Intensive Care
-                        <input class="form-check-input" type="checkbox" name="service" value="Intensive Care">
-                    </label>
-                    <label class="form-check-label">
-                        Dementia Services
-                        <input class="form-check-input" type="checkbox" name="service" value="Dementia Services">
-                    </label>
-                    <label class="form-check-label">
-                        Neonatal Care
-                        <input class="form-check-input" type="checkbox" name="service" value="Neonatal Care">
-                    </label>
-                    <label class="form-check-label">
-                        Prostate Cancer Service
-                        <input class="form-check-input" type="checkbox" name="service" value="Prostate Cancer Service">
-                    </label>
-                    <label class="form-check-label">
-                        Paediatric Surgery
-                        <input class="form-check-input" type="checkbox" name="service" value="Paediatric Surgery">
-                    </label>
-                    <label class="form-check-label">
-                        Inpatient Diabetes
-                        <input class="form-check-input" type="checkbox" name="service" value="Inpatient Diabetes">
-                    </label>
-                    <label class="form-check-label">
-                        Chronic Obstructive Pulmonary Disease
-                        <input class="form-check-input" type="checkbox" name="service"
-                            value="Chronic Obstructive Pulmonary Disease">
-                    </label>
-                </div>
-            </div>
-        </div>
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <div class="col-md-10">
                 <div id="map">
 
                 </div>
             </div>
         </div>
     </div>
-    <script async src="https://maps.googleapis.com/maps/api/js?key=myKey&v=weekly&callback=Function.prototype">
+    <script>
+        function loadGoogleMapsApi() {
+            let script = document.createElement('script');
+            script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&v=weekly&callback=Function.prototype`;
+            script.async = true;
+            document.head.appendChild(script);
+        }
+        document.addEventListener("DOMContentLoaded", loadGoogleMapsApi);
     </script>
 
 </body>
