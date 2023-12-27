@@ -2,7 +2,7 @@
 div[data-lastpass-icon-root] {
   display: none;
 }
-
+@import '~bootstrap/dist/css/bootstrap.min.css';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
 @dark-blue : #011140;
@@ -21,7 +21,7 @@ div[data-lastpass-icon-root] {
 
 html, body {
   border: 0;
-  font-family: fontFamily;
+  font-family: @fontFamily;
   line-height: 1.5;
   margin: 0;
   padding: 0;
@@ -154,6 +154,7 @@ a img {
 #map {
   height: 400px;
   width: 100%;
+  margin-top: 25px;
 }
 
  }

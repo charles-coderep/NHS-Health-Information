@@ -4,4 +4,4 @@ node_modules/
 .xlsx
 .docx
 .txt
-config.js
+src/config.js
