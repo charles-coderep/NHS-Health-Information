@@ -52,6 +52,17 @@ function loadGoogleMapsApi() {
     document.head.appendChild(script);
 }
 
+const getKeys = (serviceValues) => {
+    return serviceValues.map(serviceValue => {
+        for (const serviceObj of servicesList) {
+            if (Object.values(serviceObj)[0].toLowerCase() === serviceValue.toLowerCase()) {
+                return Object.keys(serviceObj); // Return the key when a match is found
+            }
+        }
+        return null; // Return null if no match is found
+    }).filter(key => key !== null); // Filter out any null values
+};
+
 document.addEventListener("DOMContentLoaded", (event) => {
     loadGoogleMapsApi();
     const searchButton = document.getElementById('searchButton');
@@ -61,11 +72,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
     searchButton.addEventListener('click', function () {
         const postcode = document.getElementById('postcode').value;
         const servicesString = getInputFieldValue(); // Use the getter to get the input value        
-        const servicesArray = servicesString.split(',').map(service => service.trim());
+        const servicesNameArr = servicesString.split(',').map(service => service.trim());
+        const servicesCodes = getKeys(servicesNameArr);
         if (postcode) {
             const url = new URL(`https://api.nhs.uk/service-search/search-postcode-or-place?api-version=1&search=${postcode}`);
-            let filterQuery = servicesArray.length > 0
-                ? `OrganisationTypeID eq 'HOS' and ${servicesArray.map(service => `ServicesProvided /any (x: x eq '${service}')`).join(' and ')}`
+            let filterQuery = servicesCodes.length > 0
+                ? `OrganisationTypeID eq 'HOS' and ${servicesCodes.map(service => `ServiceCodesProvided /any (x: x eq '${service}')`).join(' and ')}`
                 : `OrganisationTypeID eq 'HOS'`;
             console.log(filterQuery);
             fetch(url, {
